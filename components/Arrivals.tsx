@@ -102,12 +102,6 @@ const Arrivals = () => {
         ))}
       </div>
 
-      <div className="px-5 md:px-10 lg:px-40 mt-4 md:mt-8 flex md:hidden items-center justify-center">
-        <div className="w-full sm:w-[50%] h-[3px] bg-[#E8ECEF] relative rounded-full overflow-hidden">
-          <div className="w-1/3 h-full bg-[#141718] absolute left-0 top-0 rounded-full"></div>
-        </div>
-      </div>
-
       <div className="md:hidden px-5 mt-6 pb-8">
         <ButtonText text="More Products" linkTo="shop" />
       </div>

@@ -14,8 +14,6 @@ import Arrivals from '@/components/Arrivals'
 const Home = () => {
   return (
     <div className="w-full">
-      <Header/>
-      <Navbar/>
       <ImageSlider/>
       <InfoSection/>
       <Cards/>
@@ -23,8 +21,7 @@ const Home = () => {
       <About/>
       <Ads/>
       <Artical/>
-      <NewsLetter/>
-      <Footer/>
+      
     </div>
   )
 }

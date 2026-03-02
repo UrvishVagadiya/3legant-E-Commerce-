@@ -1,5 +1,6 @@
 import React from 'react'
 import ButtonText from './ButtonText'
+import Link from 'next/link';
 
 const Artical = () => {
     const articles = [
@@ -11,9 +12,11 @@ const Artical = () => {
         <div className='px-5 md:px-10 lg:px-40 my-10 flex flex-col gap-6 w-full'>
             <div className='flex justify-between items-end mb-4'>
                 <h2 className='text-3xl md:text-4xl font-[500]'>Articles</h2>
+                <Link href={'/blogs'}>
                 <div className='pb-1 md:pb-0'>
-                    <ButtonText text="More Articles" linkTo="article" />
+                    <ButtonText text="More Articles" linkTo="blogs" />
                 </div>
+                </Link>
             </div>
             <div className='flex flex-col md:flex-row gap-8 md:gap-4 justify-between w-full'>
                 {articles.map((article, index) => (
