@@ -123,7 +123,7 @@ const BlogPost = async ({
             <p className="mb-10 text-[#6C7275]">
               Even if you have a cabinet ready to swallow the clutter, it's
               worth investing in little storage boxes. Use translucent ones for
-              different activities... Home spa, make-up, personal hygiene –
+              different activities... Home spa, make-up, personal hygiene -
               nothing out of the dark at a moment's notice.
             </p>
           </div>
@@ -173,7 +173,7 @@ const BlogPost = async ({
             className="text-sm font-medium border-black pb-0.5 whitespace-nowrap hidden sm:block"
           >
            <div className="flex">
-              <ButtonText text="More Atricles" linkTo={`${'blogs'}`} />
+              <ButtonText text="More Atricles" linkTo={'blogs'} />
             </div>
           </Link>
         </div>
@@ -208,7 +208,7 @@ const BlogPost = async ({
             className="text-[15px] font-medium border-[#141718] pb-0.5 text-[#141718]"
           >
             <div className="flex">
-              <ButtonText text="More Atricles" linkTo={`${'blogs'}`} />
+              <ButtonText text="More Atricles" linkTo={'blogs'} />
             </div>
           </Link>
         </div>

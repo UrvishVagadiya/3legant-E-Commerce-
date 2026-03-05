@@ -13,15 +13,16 @@ const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
     const isContactPage= pathname === '/contact'
     const isCartPage= pathname === '/cart'
     const isAccountPage= pathname === '/account'
+    const isResetPassword= pathname === '/reset-password'
 
 
     return (
         <>
-            {!isAuthPage && <Header />}
-            {!isAuthPage && <Navbar />}
+            {!isAuthPage && <Header /> && (!isResetPassword && <Header/>)}
+            {!isAuthPage && <Navbar /> && (!isResetPassword && <Navbar/>)}
             {children}
-            {(!isAuthPage && <NewsLetter />) && (!isContactPage && <NewsLetter/>) && (!isCartPage && <NewsLetter/>) && (!isAccountPage && <NewsLetter/>)}
-            {!isAuthPage && <Footer />}
+            {(!isAuthPage && <NewsLetter />) && (!isContactPage && <NewsLetter/>) && (!isCartPage && <NewsLetter/>) && (!isAccountPage && <NewsLetter/>) && (!isResetPassword && <NewsLetter/>)}
+            {!isAuthPage && <Footer /> && (!isResetPassword && <Footer/>)}
         </>
     );
 };

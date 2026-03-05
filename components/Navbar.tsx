@@ -65,12 +65,12 @@ const Navbar = () => {
         <Search className="hidden md:block cursor-pointer w-5 h-5 lg:w-6 lg:h-6 hover:text-gray-500 transition-colors duration-300 ease-in-out" />
         <div className="relative">
           {user ? (
-            <div
+            <Link href={'/account'}
               className="hidden md:flex cursor-pointer w-7 h-7 lg:w-8 lg:h-8 bg-[#141718] text-white rounded-full items-center justify-center text-sm font-semibold hover:bg-gray-800 transition-colors"
               onClick={() => setShowDropdown(!showDropdown)}
             >
               {getInitial()}
-            </div>
+            </Link>
           ) : (
             <Link href={'/signin'}>
               <CircleUserRound className="hidden md:block cursor-pointer w-5 h-5 lg:w-6 lg:h-6 hover:text-gray-500 transition-colors duration-300 ease-in-out" />

@@ -93,8 +93,7 @@ const Blogs = () => {
             </div>
 
             {(isSortOpen || (typeof window !== 'undefined' && window.innerWidth >= 768)) && (
-              <div className={`
-                absolute right-0 top-full md:top-[100%] mt-1 md:mt-0 w-full md:w-48 bg-white border border-gray-100 shadow-lg rounded-md overflow-hidden z-20 transition-all duration-200
+              <div className={`absolute right-0 top-full md:top-[100%] mt-1 md:mt-0 w-full md:w-48 bg-white border border-gray-100 shadow-lg rounded-md overflow-hidden z-20 transition-all duration-200
                 md:opacity-0 md:invisible group-hover:md:opacity-100 group-hover:md:visible
                 ${isSortOpen ? 'opacity-100 visible' : 'opacity-0 invisible max-h-0 md:max-h-none'}
               `}>

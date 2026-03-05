@@ -14,7 +14,7 @@ const Artical = () => {
                 <h2 className='text-3xl md:text-4xl font-[500]'>Articles</h2>
                 <Link href={'/blogs'}>
                 <div className='pb-1 md:pb-0'>
-                    <ButtonText text="More Articles" linkTo="blogs" />
+                    <ButtonText text="More Articles" linkTo={'blogs'} />
                 </div>
                 </Link>
             </div>
