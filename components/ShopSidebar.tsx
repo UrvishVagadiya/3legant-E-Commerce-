@@ -8,6 +8,7 @@ interface ShopSidebarProps {
     priceRanges: { label: string; min: number; max: number }[];
     selectedPrices: string[];
     handlePriceChange: (label: string) => void;
+    onClose?: () => void;
 }
 
 const ShopSidebar = ({
@@ -18,12 +19,17 @@ const ShopSidebar = ({
     priceRanges,
     selectedPrices,
     handlePriceChange,
+    onClose,
 }: ShopSidebarProps) => {
     return (
         <div
-            className={`w-full lg:w-1/4 ${isFilterOpen ? "block" : "hidden"} lg:block`}
+            className={`w-full ${isFilterOpen ? "block" : "hidden"} lg:block`}
         >
-            <div className="hidden lg:flex gap-2 font-[500] items-center mb-6">
+            {/* Filter Toggle Header - Clicking this hides the sidebar */}
+            <div
+                className="hidden lg:flex gap-2 font-[500] items-center mb-6 cursor-pointer hover:text-gray-600 transition-colors w-max"
+                onClick={onClose}
+            >
                 <IoOptionsOutline className="text-xl" />
                 <h2 className="text-lg">Filter</h2>
             </div>
@@ -38,8 +44,8 @@ const ShopSidebar = ({
                             key={index}
                             onClick={() => setSelectedCategory(category)}
                             className={`text-sm cursor-pointer transition-colors w-fit ${selectedCategory === category
-                                    ? "text-[#141718] font-[600] border-b border-black"
-                                    : "text-[#807E7E] hover:text-[#141718]"
+                                ? "text-[#141718] font-[600] border-b border-black"
+                                : "text-[#807E7E] hover:text-[#141718]"
                                 }`}
                         >
                             {category}
@@ -58,8 +64,8 @@ const ShopSidebar = ({
                             <h3
                                 onClick={() => handlePriceChange(price.label)}
                                 className={`text-sm cursor-pointer transition-colors ${selectedPrices.includes(price.label)
-                                        ? "text-[#141718] font-[600]"
-                                        : "text-[#807E7E] group-hover:text-[#141718]"
+                                    ? "text-[#141718] font-[600]"
+                                    : "text-[#807E7E] group-hover:text-[#141718]"
                                     }`}
                             >
                                 {price.label}

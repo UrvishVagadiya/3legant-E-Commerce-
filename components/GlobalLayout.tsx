@@ -9,15 +9,18 @@ import Footer from "@/components/Footer";
 const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
     const pathname = usePathname();
 
-    // Define routes where we don't want the header/navbar/footer to display
     const isAuthPage = pathname === "/signin" || pathname === "/signup";
+    const isContactPage= pathname === '/contact'
+    const isCartPage= pathname === '/cart'
+    const isAccountPage= pathname === '/account'
+
 
     return (
         <>
             {!isAuthPage && <Header />}
             {!isAuthPage && <Navbar />}
             {children}
-            {!isAuthPage && <NewsLetter />}
+            {(!isAuthPage && <NewsLetter />) && (!isContactPage && <NewsLetter/>) && (!isCartPage && <NewsLetter/>) && (!isAccountPage && <NewsLetter/>)}
             {!isAuthPage && <Footer />}
         </>
     );

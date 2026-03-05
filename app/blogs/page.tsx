@@ -5,6 +5,7 @@ import React, { useState, useMemo } from "react";
 import { BsGrid3X3GapFill, BsGridFill } from "react-icons/bs";
 import { PiColumnsFill, PiRowsFill } from "react-icons/pi";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { blogsData } from "./data";
 
 const Blogs = () => {
   const [viewGrid, setViewGrid] = useState<number>(3);
@@ -12,74 +13,8 @@ const Blogs = () => {
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState<number>(9);
 
-  const rawArticles = [
-    {
-      id: 1,
-      img: "/article-1.png",
-      title: "7 ways to decor your home like a professional",
-      date: "October 16, 2023",
-      timestamp: new Date("2023-10-16").getTime(),
-    },
-    {
-      id: 2,
-      img: "/article-2.png",
-      title: "Inside a beautiful kitchen organization",
-      date: "October 16, 2023",
-      timestamp: new Date("2023-10-16").getTime(),
-    },
-    {
-      id: 3,
-      img: "/article-3.png",
-      title: "Decor your bedroom for your children",
-      date: "October 16, 2023",
-      timestamp: new Date("2023-10-16").getTime(),
-    },
-    {
-      id: 4,
-      img: "/article-1.png",
-      title: "Modern texas home is beautiful and completely kid-friendly",
-      date: "October 16, 2023",
-      timestamp: new Date("2023-10-16").getTime(),
-    },
-    {
-      id: 5,
-      img: "/article-3.png",
-      title: "Modern texas home is beautiful and completely kid-friendly",
-      date: "October 16, 2023",
-      timestamp: new Date("2023-10-16").getTime(),
-    },
-    {
-      id: 6,
-      img: "/article-2.png",
-      title: "Modern texas home is beautiful and completely kid-friendly",
-      date: "October 16, 2023",
-      timestamp: new Date("2023-10-16").getTime(),
-    },
-    {
-      id: 7,
-      img: "/article-2.png",
-      title: "Modern texas home is beautiful and completely kid-friendly",
-      date: "October 16, 2023",
-      timestamp: new Date("2023-10-16").getTime(),
-    },
-    {
-      id: 8,
-      img: "/article-1.png",
-      title: "Modern texas home is beautiful and completely kid-friendly",
-      date: "October 16, 2023",
-      timestamp: new Date("2023-10-16").getTime(),
-    },
-    {
-      id: 9,
-      img: "/article-3.png",
-      title: "Modern texas home is beautiful and completely kid-friendly",
-      date: "October 16, 2023",
-      timestamp: new Date("2023-10-16").getTime(),
-    },
-  ];
-
   const sortedArticles = useMemo(() => {
-    let result = [...rawArticles];
+    let result = [...blogsData];
 
     if (sortOption === "az") {
       result.sort((a, b) => a.title.localeCompare(b.title));
@@ -198,12 +133,13 @@ const Blogs = () => {
             : viewGrid === 2
               ? "md:grid-cols-2"
               : viewGrid === 3
-                ? "md:grid-cols-3"
-                : "md:grid-cols-4")
+                ? "md:grid-cols-4"
+                : "md:grid-cols-3")
           }`}
       >
         {sortedArticles.slice(0, visibleCount).map((article) => (
-          <div
+          <Link
+            href={`/blogs/${article.id}`}
             key={article.id}
             className={`flex flex-col group ${viewGrid === 1 ? 'md:flex-row md:items-center md:gap-8' : ''}`}
           >
@@ -229,7 +165,7 @@ const Blogs = () => {
                 </p>
               )}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
